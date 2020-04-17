@@ -1,0 +1,39 @@
+<nav>
+    <ul>
+      <li><a href="#javascript">Things Done So Far.</a></li>
+      <li><a href="#window">The Browser Window</a></li>
+      <li><a href="#document">Document Object Model</a></li>
+      <li><a href="#element">Document Elements</a></li>
+    </ul>
+  </nav>
+  <section id="javascript">
+    <h2 class="sticky-sub-heading">Things Done So Far.</h2>
+    <p>I am still puzzling through the right way to think about some ideas in compression, so let’s take a break from that and talk about generally cleaning up the source code.
+
+      To ease the maintainability of the game going into the future, there are many things that could be done. I’ll detail some of those here. I just spent a few hours trying the most obvious of these; I’ll list the completed tasks first, along with their impact on the source code.
+      
+      Before this process, the Braid source code was 95,366 lines, counted using:
+      
+      cloc --no3 --by-file-by-lang
+      
+      As always, the reported number excludes comments and blank lines. This is just counting source from the game, not including third-party libraries, and in fact missing a few pieces of the game like the shaders, scripts for building and installing on various OSs, etc. But it’s a pretty okay measure of the size of the program.</p>  
+      <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTr0efMuLvLYDU8ba6ktfRFAC3oPVhj3of7R28hWxDjeytz1YtP&usqp=CAU" alt="An example placeholder image"></div>
+
+      <p>Delete a bunch of unused code from the game: 10,254 lines removed. Back at the time, Braid was built using the body of code that had been ‘my game library’; I never knew what code Braid might and might not use, so I just left everything in there in case I might want it. At this point, all that code is old enough that even if I did want to reuse some piece of it, it should be rewritten anyway or at least given a good looking-at.
+
+        Code deleted: Priority queue, timed-average and timed-average-variance, float quantization and encoding, arithmetic coder, networking, byte packing for network packets, mesh and skeletal animation code, triangle intersection, Jenkins hash, crc32, triangle intersection, cubic spline fitting and editing, view frustum, two different proximity grids, Fridge memory allocator, redundant directory navigation code, bit array.
+        
+        Remove Xbox-360-specific code: 3,694 lines removed. Remove a bunch of special-case code surrounded by #ifdef XBOX360. Examples: annoying cert requirements about user profiles, menus, leaderboards, xbox live achievements, special cases for launching Speed Run from Xbox interface. The game was also ported to the PlayStation 3, but this was done by an outside party in a different branch of the source, so I did not have to worry about that now.
+        
+        Get rid of Demo functionality / upgrading to ‘full game’: 319 lines removed. Demos are complicated to manage (on systems that don’t support demos well, which is most of them, it multiplies the number of builds you have to manage by 2 and adds lots of complicated details). Also, demos are not really necessary today; if people want to find out about a game, they can look on YouTube or read what many many people have to say about the game on the internet. On platforms like Steam, players can return a game (that’s been played for less than two hours) for a full refund, so a large part of the reason for a demo has been removed (you could view a demo as a way of not getting screwed by paying for something that’s terrible, but refunds do that too). Empirically, on Steam, very few people download the demo any more.
+        
+        This only removed 319 lines, but those 319 lines contained a lot of ‘if’ statements and complications around key moments of game flow, so this is a pretty good win.
+        
+        Data-wise, this also allowed me to remove 3 game levels that were only used in the demo. There are still some complications hanging out in the game data that could be removed (such as member variables on various entities that help control game flow in the demo). There are also a bunch of strings that can now be deleted.
+        
+        Get rid of non-Steam PC online publishers that have folded: 31 lines removed. Removed ifdefs for GREENHOUSE, IMPULSE, GAMERSGATE. Not a lot of code, nor was it very complicated, but hey, it’s gone now.</p>
+  </section>
+  <section id="window">
+    <h2 class="sticky-sub-heading">Braid Particle System Revision </h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et numquam modi vitae! Sapiente quis perspiciatis pariatur culpa quisquam voluptatibus magnam dolorem neque, deleniti voluptates obcaecati facere aperiam debitis iure reiciendis harum ipsum ab repellat voluptatem autem, a commodi ex. Inventore ipsam omnis numquam in placeat laborum, veniam fuga quam fugiat voluptates debitis ipsa necessitatibus tempora repellendus? Laborum aperiam dolore ut quam vitae? Temporibus, ea ipsa, est libero officia quos officiis dolores reprehenderit corporis culpa corrupti, minus velit. Aut nobis minus suscipit vel sunt dolores. Consequuntur voluptas illo nihil eos saepe dicta praesentium maxime ratione. Voluptates, labore molestiae aut, quidem et animi, cum explicabo voluptatem sint quasi neque qui minima. Magnam corporis corrupti voluptatem ratione cupiditate! Repudiandae iusto iste ratione architecto ex quasi exercitationem rerum harum accusantium, aliquam repellat sapiente recusandae praesentium quibusdam culpa neque. Facilis iste ipsam consectetur beatae fugiat atque maxime optio excepturi veniam officia cum ex, ut laboriosam cumque illo dolore aliquid culpa, dicta corporis soluta natus nesciunt ipsa ratione. Blanditiis at temporibus quasi suscipit, repellendus eius dolor maiores sit atque sint non fugiat consequuntur voluptates quae sed unde placeat ex excepturi provident alias a ullam libero veniam voluptatibus. Distinctio, explicabo! Magnam recusandae harum explicabo odit nisi earum.</p>
+  </section> 

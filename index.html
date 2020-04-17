@@ -11,8 +11,11 @@
   </head>
   <body>
     <main class="story">
-      <header>
-        <h1>Javascript and the UI</h1>
+      <header class="sticky-heading">
+        <h1 id="article-title">Javascript and the UI</h1>
+        <canvas id="canvas"></canvas> 
+      </header>
+      <article id="article-body">
         <nav>
           <ul>
             <li><a href="#javascript">Javascript Intro</a></li>
@@ -21,10 +24,8 @@
             <li><a href="#element">Document Elements</a></li>
           </ul>
         </nav>
-      </header>
-      <article>
         <section id="javascript">
-          <h2>Javascript Intro</h2>
+          <h2 class="sticky-sub-heading">Javascript Intro</h2>
           <p>JavaScript (/ˈdʒɑːvəˌskrɪpt/),[9] often abbreviated as JS, is a high-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.[10] JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.</p>
           <p>Alongside HTML and CSS, JavaScript is one of the core technologies of the World Wide Web.[11] JavaScript enables interactive web pages and is an essential part of web applications. The vast majority of websites use it,[12] and major web browsers have a dedicated JavaScript engine to execute it.</p>
           <p>As a multi-paradigm language, JavaScript supports event-driven, functional, and imperative (including object-oriented and prototype-based) programming styles. It has APIs for working with text, arrays, dates, regular expressions, and the DOM, but the language itself does not include any I/O, such as networking, storage, or graphics facilities. It relies upon the host environment in which it is embedded to provide these features.</p>
@@ -35,7 +36,7 @@
           <footer><p>Information copied from <cite><a href="https://en.wikipedia.org/wiki/JavaScript">Wikipedia's entry on JavaScript</a></cite></p></footer>
         </section>
         <section id="window">
-          <h2>The Browser Window</h2>
+          <h2 class="sticky-sub-heading">The Browser Window</h2>
           <p>The Window interface represents a window containing a DOM document; the document property points to the DOM document loaded in that window. A window for a given document can be obtained using the document.defaultView property.</p>
           <p>A global variable, window, representing the window in which the script is running, is exposed to JavaScript code.</p>
           <p>The Window interface is home to a variety of functions, namespaces, objects, and constructors which are not necessarily directly associated with the concept of a user interface window. However, the Window interface is a suitable place to include these items that need to be globally available. Many of these are documented in the JavaScript Reference and the DOM Reference.</p>
@@ -44,7 +45,7 @@
           <footer><p>Information copied from <cite><a href="https://developer.mozilla.org/en-US/docs/Web/API/window">MDN's entry on the Window object</a></cite></p></footer>
         </section>
         <section id="document">
-          <h2>Document Object Model</h2>
+          <h2 class="sticky-sub-heading">Document Object Model</h2>
           <p>The Document Object Model (DOM) is a cross-platform and language-independent interface that treats an XML or HTML document as a tree structure wherein each node is an object representing a part of the document. The DOM represents a document with a logical tree. Each branch of the tree ends in a node, and each node contains objects. DOM methods allow programmatic access to the tree; with them one can change the structure, style or content of a document. Nodes can have event handlers attached to them. Once an event is triggered, the event handlers get executed.[2]</p>
           <p>The principal standardization of the DOM was handled by the World Wide Web Consortium, which last developed a recommendation in 2004. WHATWG took over development of the standard, publishing it as a living document. The W3C now publishes stable snapshots of the WHATWG standard.</p>
           <div><img src="https://via.placeholder.com/1600x900" alt="An example placeholder image"></div>
@@ -58,7 +59,7 @@
           <footer><p>Information copied from <cite><a href="https://en.wikipedia.org/wiki/Document_Object_Model">Wikipedia's entry on the Document Object Model</a></cite></p></footer>
         </section>
         <section id="element">
-          <h2>Document Elements</h2>
+          <h2 class="sticky-sub-heading">Document Elements</h2>
           <p>Element is the most general base class from which all element objects (i.e. objects that represent elements) in a Document inherit. It only has methods and properties common to all kinds of elements. More specific classes inherit from Element. For example, the HTMLElement interface is the base interface for HTML elements, while the SVGElement interface is the basis for all SVG elements. Most functionality is specified further down the class hierarchy.</p>
           <div><img src="https://via.placeholder.com/1600x900" alt="An example placeholder image"></div>
           <p>Languages outside the realm of the Web platform, like XUL through the XULElement interface, also implement Element.</p>
@@ -66,6 +67,10 @@
         </section>
       </article>
     </main>
+    <article class="next-article" id="next-article">
+      <p>Next article in <span id="next-article-seconds">10</span> seconds</p>
+      <h2 id="next-article-title">Article Title -></h2>
+    </article>
     <script src="js/index.js"></script>
   </body>
 </html>
