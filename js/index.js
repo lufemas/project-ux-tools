@@ -10,15 +10,15 @@ const $articleBody = $.getElementById("article-body")
 const articles = [
     {
         title : "Game Theory",    
-        filename : "/articles/article-2.html",
+        filename : "./articles/article-2.html",
     },
     {
         title : "You Should Be Coding in Your Physics Course",    
-        filename : "/articles/article-3.html",
+        filename : "./articles/article-3.html",
     },
     {
         title : "Braid Code Cleanup",    
-        filename : "/articles/article-4.html",
+        filename : "./articles/article-4.html",
     },
 ]
 
